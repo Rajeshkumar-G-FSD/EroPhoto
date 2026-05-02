@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react";
 
 export default function BookingForm() {
+  const [budget, setBudget] = useState(5);
+
   return (
     <section className="bg-surface-container-low py-32" id="contact">
       <div className="max-w-4xl mx-auto px-6">
@@ -43,17 +45,22 @@ export default function BookingForm() {
             </div>
 
             <div className="space-y-4">
-              <label className="block text-[10px] font-bold tracking-[0.2em] text-on-surface-variant uppercase">
-                Estimated Budget Range
-              </label>
-              <div className="flex justify-between items-center text-sm font-medium text-on-background">
-                <span>₹5 Lakh</span>
-                <span>₹50 Lakh+</span>
+              <div className="flex justify-between items-end">
+                <label className="block text-[10px] font-bold tracking-[0.2em] text-on-surface-variant uppercase">
+                  Estimated Budget Range
+                </label>
+                <span className="text-2xl font-serif text-primary-container">₹{budget}k</span>
+              </div>
+              <div className="flex justify-between items-center text-[10px] font-bold tracking-widest text-on-surface-variant/50 uppercase">
+                <span>₹5k</span>
+                <span>₹92k+</span>
               </div>
               <input
                 type="range"
                 min="5"
-                max="50"
+                max="92"
+                value={budget}
+                onChange={(e) => setBudget(Number(e.target.value))}
                 className="w-full h-[2px] bg-outline-variant rounded-lg appearance-none cursor-pointer accent-primary-container"
               />
             </div>
