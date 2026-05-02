@@ -27,9 +27,27 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const scrollToContact = () => {
+    setTimeout(() => {
+      const el = document.getElementById("contact");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
+
+  const handleBookNow = () => {
+    if (activeExperience) {
+      setActiveExperience(null);
+      scrollToContact();
+    } else {
+      scrollToContact();
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background selection:bg-primary-container selection:text-on-primary">
-      <Navbar />
+      <Navbar onBookNow={handleBookNow} />
       <main>
         <AnimatePresence mode="wait">
           {!activeExperience ? (
@@ -39,7 +57,7 @@ export default function App() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <Hero />
+              <Hero onBookNow={handleBookNow} />
               <div id="experiences">
                 <HeroSlider onExplore={handleExplore} />
               </div>
@@ -56,6 +74,7 @@ export default function App() {
               <ExperienceDetail 
                 experience={activeExperience} 
                 onBack={() => setActiveExperience(null)} 
+                onInquire={handleBookNow}
               />
             </motion.div>
           )}

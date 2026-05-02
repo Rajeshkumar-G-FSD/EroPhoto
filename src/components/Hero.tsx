@@ -1,7 +1,11 @@
 import React from "react";
 import { motion } from "motion/react";
 
-export default function Hero() {
+interface HeroProps {
+  onBookNow?: () => void;
+}
+
+export default function Hero({ onBookNow }: HeroProps) {
   return (
     <section className="relative h-[90vh] w-full flex items-center justify-center overflow-hidden">
       {/* Cinematic Background */}
@@ -41,7 +45,8 @@ export default function Hero() {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-primary-container text-on-primary px-12 py-5 rounded-full text-[10px] font-bold tracking-[0.3em] uppercase shadow-lg"
+            onClick={onBookNow}
+            className="bg-primary-container text-on-primary px-12 py-5 rounded-full text-[10px] font-bold tracking-[0.3em] uppercase shadow-lg border-none cursor-pointer"
           >
             Book Now
           </motion.button>

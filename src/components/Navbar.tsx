@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Search, User } from "lucide-react";
 
-export default function Navbar() {
+interface NavbarProps {
+  onBookNow?: () => void;
+}
+
+export default function Navbar({ onBookNow }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -10,6 +14,13 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    if (id === "contact" && onBookNow) {
+      e.preventDefault();
+      onBookNow();
+    }
+  };
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${
@@ -27,6 +38,7 @@ export default function Navbar() {
             <motion.a
               key={item}
               href={`#${item.toLowerCase()}`}
+              onClick={(e) => handleClick(e, item.toLowerCase())}
               className={`text-xs font-bold tracking-widest transition-colors duration-500 relative group ${
                 isScrolled ? "text-on-surface/70 hover:text-on-surface" : "text-white/80 hover:text-white"
               }`}
@@ -47,7 +59,10 @@ export default function Navbar() {
           <button className="hover:text-primary-container transition-colors">
             <User size={20} />
           </button>
-          <button className="hidden sm:block bg-primary-container text-on-primary px-6 py-2.5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase">
+          <button 
+            onClick={onBookNow}
+            className="hidden sm:block bg-primary-container text-on-primary px-6 py-2.5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase"
+          >
             Inquire
           </button>
         </div>

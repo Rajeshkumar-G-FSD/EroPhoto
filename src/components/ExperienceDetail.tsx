@@ -16,9 +16,10 @@ interface Experience {
 interface ExperienceDetailProps {
   experience: Experience;
   onBack: () => void;
+  onInquire?: () => void;
 }
 
-export default function ExperienceDetail({ experience, onBack }: ExperienceDetailProps) {
+export default function ExperienceDetail({ experience, onBack, onInquire }: ExperienceDetailProps) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -26,8 +27,9 @@ export default function ExperienceDetail({ experience, onBack }: ExperienceDetai
       exit={{ opacity: 0 }}
       className="min-h-screen bg-background"
     >
-      {/* Hero Section of Detail */}
+      {/* ... Hero Section of Detail ... */}
       <section className="relative h-[70vh] w-full overflow-hidden">
+        {/* ... image and overlays ... */}
         <img
           src={experience.image}
           alt={experience.title}
@@ -128,7 +130,10 @@ export default function ExperienceDetail({ experience, onBack }: ExperienceDetai
                 </ul>
               </div>
 
-              <button className="w-full py-5 bg-primary-container text-on-primary rounded-full text-[10px] font-bold tracking-[0.3em] uppercase hover:shadow-2xl transition-all mb-4">
+              <button 
+                onClick={onInquire}
+                className="w-full py-5 bg-primary-container text-on-primary rounded-full text-[10px] font-bold tracking-[0.3em] uppercase hover:shadow-2xl transition-all mb-4"
+              >
                 Inquire Now
               </button>
               <p className="text-[10px] text-center text-on-surface-variant uppercase tracking-widest">Limited Capacity Available</p>
