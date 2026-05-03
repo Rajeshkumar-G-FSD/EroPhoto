@@ -9,6 +9,7 @@ import ExperienceDetail from "./components/ExperienceDetail.tsx";
 import Destinations from "./components/Destinations.tsx";
 import Weddings from "./components/Weddings.tsx";
 import Offers from "./components/Offers.tsx";
+import ScrollToTop from "./components/ScrollToTop.tsx";
 import { AnimatePresence, motion } from "motion/react";
 import { Experience, Page } from "./types";
 
@@ -145,6 +146,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-background selection:bg-primary-container selection:text-on-primary">
       <Navbar onBookNow={handleBookNow} onPageChange={handlePageChange} currentPage={currentPage} />
+      <ScrollToTop />
       <main>
         <AnimatePresence mode="wait">
           {renderContent()}
