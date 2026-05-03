@@ -100,15 +100,7 @@ export default function Footer({ onPageChange }: FooterProps) {
         </div>
       </div>
 
-      {/* Floating WhatsApp / Chat */}
-      <motion.button
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={() => onPageChange?.("CONTACT")}
-        className="fixed bottom-10 right-10 w-16 h-16 bg-white rounded-full shadow-2xl flex items-center justify-center text-primary-container border border-primary-container/10 z-[100]"
-      >
-        <MessageCircle size={28} />
-      </motion.button>
+      {/* Floating WhatsApp / Chat removed to be replaced by ChatBot component in App.tsx */}
     </footer>
   );
 }
