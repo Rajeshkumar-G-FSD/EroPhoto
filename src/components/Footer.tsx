@@ -9,10 +9,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
           <div className="col-span-1 lg:col-span-1">
             <div className="text-2xl font-serif tracking-[0.2em] text-on-surface mb-6 uppercase">
-              DREAM DECORS
+              E MEDIA EVENTS
             </div>
             <p className="text-on-surface-variant font-light leading-relaxed mb-8">
-              Elevating the art of celebration and home aesthetics through meticulous design and unparalleled global service.
+              Elevating the art of celebration and media experiences through meticulous design and unparalleled global service.
             </p>
             <div className="flex space-x-5">
               <a href="#" className="text-on-surface-variant hover:text-primary transition-colors">
@@ -53,7 +53,7 @@ export default function Footer() {
           <div>
             <h4 className="text-[10px] font-bold tracking-[0.3em] text-on-surface uppercase mb-8">Instagram</h4>
             <a href="#" className="text-on-surface-variant hover:text-primary transition-all duration-300 text-sm font-light hover:pl-2">
-              Follow @DreamDecors
+              Follow @EMediaEvents
             </a>
           </div>
         </div>

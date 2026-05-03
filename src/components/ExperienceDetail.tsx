@@ -84,7 +84,7 @@ export default function ExperienceDetail({ experience, onBack, onInquire }: Expe
               <img src={experience.image} alt="" className="rounded-2xl h-80 w-full object-cover shadow-xl" />
               <div className="bg-surface-container p-10 rounded-2xl flex flex-col justify-center">
                 <h3 className="font-serif text-2xl text-on-surface mb-4">Unparalleled Service</h3>
-                <p className="text-on-surface-variant font-light">Every Dream Decors itinerary includes a dedicated 24/7 concierge, private transportation, and all-access passes to the most exclusive venues at your destination.</p>
+                <p className="text-on-surface-variant font-light">Every E Media Events itinerary includes a dedicated 24/7 concierge, private transportation, and all-access passes to the most exclusive venues at your destination.</p>
               </div>
             </div>
 

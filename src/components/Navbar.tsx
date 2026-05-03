@@ -30,7 +30,7 @@ export default function Navbar({ onBookNow }: NavbarProps) {
         <div className={`text-xl md:text-2xl font-serif font-light tracking-[0.2em] transition-colors duration-500 ${
           isScrolled ? "text-on-surface" : "text-white"
         }`}>
-          DREAM DECORS
+          E MEDIA EVENTS
         </div>
         
         <nav className="hidden lg:flex items-center space-x-10">
